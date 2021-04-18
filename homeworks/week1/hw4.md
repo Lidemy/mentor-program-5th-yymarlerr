@@ -28,10 +28,10 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
  - 第三版：複製第二版的資料夾，並且只更新笑話說明 v1 成笑話說明 v2
 ![Imgur](https://i.imgur.com/SGvWRbe.png)
 
-然而在多人一起協作的情況下，若使用流水號，可能會不小心同時建立了一樣名稱的版本，例如，現在最新版為第三版，我跟同事同時在更新笑話，更新完後又同時建立的第四版這個資料夾。故我們會先使用亂數當作版本名稱，這樣就不會有資料夾檔名相同的問題。
+然而在多人一起協作的情況下，若使用流水號，可能會不小心同時建立了一樣名稱的版本，例如，現在最新版為第三版，我跟同事同時在更新笑話，更新完後又同時建立了第四版這個資料夾。故我們會先使用亂數當作版本名稱，這樣就不會有資料夾檔名相同的問題。
 ![Imgur](https://i.imgur.com/t8FnNtA.png)
 
-#### 蔡哥發題
+#### 蔡哥發問
 - 那這樣要怎麼知道哪一個才是最新的版本？
     - 因為資料夾名稱為亂數，無法判斷出哪一個資料夾裡面的檔案才是最新版本，所以我們需要再建立一個文字檔：**最新的版本**來紀錄。
     ![Imgur](https://i.imgur.com/vpJu9mM.png)
@@ -70,14 +70,15 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
 * untracked files ，代表沒有被加入版本控制
 * staged，已被加入版本控制（有被修改過但還沒正式建立新版本）
 * 若要從staged移回untracked flies：用`git rm --cached <file>`
-* 若要將所有檔案都加入版本控制：`git add .` 
+* 若要將整個資料夾的檔案都加入版本控制：`git add .`
+  * `.` 代表整個資料夾 
 
-#### `git commit -m"enter commit name"`
+#### `git commit -m <commit message>
 * 新建一個版本
 
 >概念：新增commit，就像是新增一個資料夾，資料夾名稱為commit編號，add為新增檔案進去。
 
-* `git commit -am "enter commit name“`將所有 (am 代表 all) **修改過**的檔案加入 staged 區，再加入 commit 中。如果是新增的檔案則不適用。
+* `git commit -am <commit message>` 將所有 (am 代表 all) **修改過**的檔案加入 staged 區，再加入 commit 中。如果是新增的檔案則不適用。
 
 #### `git log`
 * 查看歷史紀錄
@@ -85,7 +86,7 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
 
 #### `git checkout`
 * 回到某一個版本的狀態
-* `git checkout <commit name>`查看該版本狀態
+* `git checkout <commit message>`查看該版本狀態
 * `git checkout master`回到 master 這個 branch 的最新版本
 
 #### `.gitignore`
@@ -98,10 +99,10 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
 * `git add` 將檔案加入版本控制 
 > 把檔案加入暫時的資料夾
 
-* 新建版本 `git commit -m"enter commit name"` 
+* 新建版本 `git commit -m <commit message>` 
 >正式給予暫時的資料夾版本名稱
 
-* 切換版本 `git checkout <commit name> ` 
+* 切換版本 `git checkout <commit message> ` 
 >去到某個資料夾底下
 
 ### Branch 介紹
@@ -124,7 +125,7 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
 2. 再複製 main 並建一個資料夾叫做 new ，這時new 資料夾裡面也會有子資料夾 commit 1 & commit 2
 3. 繼續在 new 裡面新增 new commit 3 & new commit 4
 4. 最後將 new commit 3 & new commit 4 移過去到 main 資料夾裡面，即可合併 main 和 new。
-5. 若 main 也有新增 commit 並且不小心和 new 改到同個檔案，那會產生 conflicts。
+5. 若 main 也有新增 commit 並且不小心和 new 改到同個檔案，可能會產生 conflicts。
 
 ***
 ### 和 branch 相關的指令介紹
@@ -148,11 +149,11 @@ Git 是一個負責作版本控制的程式，可以管理不同版本的檔案�
 * 若現在在 branch master，然後要將 master 和 yay 這個 branch 合併在一起，使用 `git merge yay` 則表表將 yay 這個 branch 合併到 master 裡面
 
 ### conflict 
-若在不同的 branch 改到同一個檔案的話，在合併檔案時 Git 會無法分辨哪一個才是正確的版本，這時 Git 會跳出 conflict 的訊息
+若在不同的 branch 改到同一個檔案的話，在合併檔案時，若 Git 無法分辨哪一個才是正確的版本，這時 Git 會跳出 conflict 的訊息
 #### 如何解決 conflict?
 * `git status`查看哪個檔案有 conflict
 * `vim <file with conflict>`修改內容，Head 下方顯示的內容為現在所在的 branch 的內容
-* 改完後 `ｇit commit -am ""`
+* 改完後 `ｇit commit -am <commit message>`
 
 ## Git & Github
 ### Github
