@@ -13,19 +13,19 @@ rl.on('line', function (line) {
 rl.on('close', function() {
   solve(lines)
 })
-/* eslint-disable */
+/* eslint-enable */
 function solve(lines) {
   for (let i = 1; i < lines.length; i++) {
-    let str = lines[i].split(' ')
-    let A = BigInt(str[0])
-    let B = BigInt(str[1])
-    let C = Number(str[2])
+    const str = lines[i].split(' ')
+    const A = BigInt(str[0])
+    const B = BigInt(str[1])
+    const C = Number(str[2])
     if (C === 1) {
       bigOrsmall(A, B, C)
     } else if (C === -1) {
       bigOrsmall(A, B, C)
     }
-    }
+  }
 }
 
 function bigOrsmall(a, b, c) {

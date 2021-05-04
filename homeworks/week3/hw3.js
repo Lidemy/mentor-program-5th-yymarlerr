@@ -15,27 +15,28 @@ rl.on('close', function() {
   solve(lines)
 })
 
-/* eslint-disable */
+/* eslint-enable */
 function solve(lines) {
-    for (let i = 1; i < lines.length; i++) {
-      let a = Number(lines[i])
-      if (isPrime(a) === true) {
-        console.log('Prime')
-      } else if (isPrime(a) === false) {
-        console.log('Composite')
-      }
+  for (let i = 1; i < lines.length; i++) {
+    const a = Number(lines[i])
+    if (isPrime(a) === true) {
+    /* eslint-disable-next-line */
+      console.log('Prime')
+    } else if (isPrime(a) === false) {
+      console.log('Composite')
     }
   }
+}
 
 function isPrime(n) {
   if (n === 1) {
-    return false;
+    return false
   }
   for (let i = 2; i <= n; i++) {
-     if (n % i === 0 && n !== i) {
-      return false;
+    if (n % i === 0 && n !== i) {
+      return false
     } else if (n % i === 0 && n === i) {
-      return true;
-    } 
-  } 
+      return true
+    }
+  }
 }

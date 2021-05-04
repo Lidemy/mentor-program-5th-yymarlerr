@@ -13,14 +13,14 @@ rl.on('line', function(line) {
 rl.on('close', function() {
   solve(lines)
 })
+/* eslint-enable */
 
-/* eslint-disable */
-
-function solve (lines) {
-  let a = Number(lines[0])
+function solve(lines) {
+  const a = Number(lines[0])
   let star = ''
   for (let i = 1; i <= a; i++) {
-    star = star + "*"
+  /* eslint-disable-next-line */
+    star = star + '*'
     console.log(star)
   }
 }

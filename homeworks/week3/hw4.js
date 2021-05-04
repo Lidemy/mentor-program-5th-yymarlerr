@@ -1,5 +1,4 @@
 /* eslint-disable */
-
 var readline = require('readline');
 
 var lines = []
@@ -14,17 +13,18 @@ rl.on('line', function (line) {
 rl.on('close', function() {
   solve(lines)
 })
-
-/* eslint-disable */
+/* eslint-enable */
 
 function solve(lines) {
-  let a = lines
+  const a = lines
   let result = ''
   for (let i = 1; i <= a.length; i++) {
     result += a[a.length - i]
   }
   if (a === result) {
-    return true 
+    return true
+  /* eslint-disable-next-line */
+  } else {
+    return false
   }
-  else { return false }
 }
