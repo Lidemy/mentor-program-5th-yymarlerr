@@ -1,29 +1,25 @@
-/* eslint-disable */
-var readline = require('readline');
+const readline = require('readline')
 
-var lines = []
-var rl = readline.createInterface({
+const lines = []
+const rl = readline.createInterface({
   input: process.stdin
-});
+})
 
-rl.on('line', function (line) {
+rl.on('line', (line) => {
   lines.push(line)
-});
+})
 
-rl.on('close', function() {
+rl.on('close', () => {
   solve(lines)
 })
-/* eslint-enable */
-
 function solve(lines) {
-  const a = lines
+  const string = lines
   let result = ''
-  for (let i = 1; i <= a.length; i++) {
-    result += a[a.length - i]
+  for (let i = 1; i <= string.length; i++) {
+    result += string[string.length - i]
   }
-  if (a === result) {
+  if (string === result) {
     return true
-  /* eslint-disable-next-line */
   } else {
     return false
   }

@@ -1,30 +1,25 @@
-/* eslint-disable */
-var readline = require('readline');
+const readline = require('readline')
 
-var lines = []
-var rl = readline.createInterface({
+const lines = []
+const rl = readline.createInterface({
   input: process.stdin
-});
+})
 
-rl.on('line', function (line) {
+rl.on('line', (line) => {
   lines.push(line)
-});
+})
 
-rl.on('close', function() {
+rl.on('close', () => {
   solve(lines)
 })
-/* eslint-enable */
+
 function solve(lines) {
   for (let i = 1; i < lines.length; i++) {
     const str = lines[i].split(' ')
-    const A = BigInt(str[0])
-    const B = BigInt(str[1])
-    const C = Number(str[2])
-    if (C === 1) {
-      bigOrsmall(A, B, C)
-    } else if (C === -1) {
-      bigOrsmall(A, B, C)
-    }
+    const first = BigInt(str[0])
+    const second = BigInt(str[1])
+    const decideWhowin = Number(str[2])
+    bigOrsmall(first, second, decideWhowin)
   }
 }
 

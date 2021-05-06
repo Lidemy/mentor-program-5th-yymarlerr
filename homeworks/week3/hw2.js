@@ -1,31 +1,30 @@
-/* eslint-disable */
-var readline = require('readline');
+const readline = require('readline')
 
-var lines = []
-var rl = readline.createInterface({
+const lines = []
+const rl = readline.createInterface({
   input: process.stdin
-});
+})
 
-rl.on('line', function (line) {
+rl.on('line', (line) => {
   lines.push(line)
-});
+})
 
-rl.on('close', function() {
+rl.on('close', () => {
   solve(lines)
 })
-/* eslint-enable */
+
 function solve(lines) {
-  const a = lines[0].split(' ')
-  const N = Number(a[0])
-  const M = Number(a[1])
-  for (let i = N; i <= M; i++) {
+  const range = lines[0].split(' ')
+  const minimum = Number(range[0])
+  const max = Number(range[1])
+  for (let i = minimum; i <= max; i++) {
     if (i === isNarcissistic(i)) {
       console.log(i)
     }
   }
 }
 
-function digitnumber(n) {
+function countDigit(n) {
   if (n === 0) {
     return 1
   }
@@ -37,7 +36,7 @@ function digitnumber(n) {
   }
 }
 
-function eachnumber(n) {
+function specifyNumber(n) {
   const arr = []
   for (let i = 1; i < 10e5; i++) {
     arr.push(Math.floor(n) % 10)
@@ -47,8 +46,8 @@ function eachnumber(n) {
 }
 
 function isNarcissistic(n) {
-  const a = digitnumber(n)
-  const b = eachnumber(n)
+  const a = countDigit(n)
+  const b = specifyNumber(n)
   let sum = 0
   for (let i = 0; i < b.length; i++) {
     sum += b[i] ** a

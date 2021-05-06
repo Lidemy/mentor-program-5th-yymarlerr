@@ -1,26 +1,23 @@
-/* eslint-disable */
-var readline = require('readline');
+const readline = require('readline')
 
-var lines = []
-var rl = readline.createInterface({
+const lines = []
+const rl = readline.createInterface({
   input: process.stdin
-});
+})
 
-rl.on('line', function(line) {
+rl.on('line', (line) => {
   lines.push(line)
 })
 
-rl.on('close', function() {
+rl.on('close', () => {
   solve(lines)
 })
-/* eslint-enable */
 
 function solve(lines) {
-  const a = Number(lines[0])
+  const qty = Number(lines[0])
   let star = ''
-  for (let i = 1; i <= a; i++) {
-  /* eslint-disable-next-line */
-    star = star + '*'
+  for (let i = 1; i <= qty; i++) {
+    star = 'star + *'
     console.log(star)
   }
 }

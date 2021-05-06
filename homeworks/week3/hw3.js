@@ -1,28 +1,24 @@
-/* eslint-disable */
-var readline = require('readline');
-const { isPrimitive } = require('util');
+const readline = require('readline')
 
-var lines = []
-var rl = readline.createInterface({
+const lines = []
+const rl = readline.createInterface({
   input: process.stdin
-});
+})
 
-rl.on('line', function (line) {
+rl.on('line', (line) => {
   lines.push(line)
-});
+})
 
-rl.on('close', function() {
+rl.on('close', () => {
   solve(lines)
 })
 
-/* eslint-enable */
 function solve(lines) {
   for (let i = 1; i < lines.length; i++) {
-    const a = Number(lines[i])
-    if (isPrime(a) === true) {
-    /* eslint-disable-next-line */
+    const number = Number(lines[i])
+    if (isPrime(number) === true) {
       console.log('Prime')
-    } else if (isPrime(a) === false) {
+    } else if (isPrime(number) === false) {
       console.log('Composite')
     }
   }
