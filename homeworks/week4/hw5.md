@@ -20,8 +20,8 @@ API 的全名是 application programming interface 應用程式介面，是一�
 | :-----| ----: | :----: | :---: | :---: |
 | 獲得所有餐廳資料 | Get | /information | _limit:限制回傳資料數量 | /information?_limit=10 |
 | 獲得單一餐廳資料| Get | /information/:id | 無 | /information/10
-| 刪除餐廳 | Delete | /information | 無 | 無
-| 新增餐廳 | Post | /information/:id | name: 餐廳名稱 | 無
+| 刪除餐廳 | Delete | /information/:id | 無 | 無
+| 新增餐廳 | Post | /information| name: 餐廳名稱 | 無
 | 更改餐廳資訊 | Patch | /information/:id | name: 餐廳名稱 | 無 
 
 ### 使用 node.js 發 request 印出資料
