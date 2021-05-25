@@ -12,19 +12,19 @@
 
 <body>
     <div class='wrapper'>
-        <div class='form__title'>
-            新拖延運動報名表單 
-        </div>
-        <div class='form__info'>
-            <div class='form__info-date'>
-                活動日期：2020/12/10 ~ 2020/12/11 
-            </div>
-            <div class='form__info-place'>
-                活動地點：台北市大安區新生南路二段1號
-            </div>
-            <div class='form__notice'>* 必填</div>
-        </div>
         <form>
+            <h1 class='form__title'>
+                新拖延運動報名表單 
+            </h1>
+            <div class='form__info'>
+                <p class='form__info-date'>
+                    活動日期：2020/12/10 ~ 2020/12/11 
+                </p>
+                <p class='form__info-place'>
+                    活動地點：台北市大安區新生南路二段1號
+                </p>
+                <div class='form__notice'>* 必填</div>
+            </div>
             <div class='form__group'>
                 <div class='question'>暱稱</div>
                 <div class='reply'><input type='name' value='您的回答' /></div>  
@@ -41,13 +41,17 @@
                 <div class='question'>
                     報名類型
                 </div>
-                <div class='type__bed'>
-                  <div class='circle'></div>
-                  <div>躺在床上用想像力實作</div>
-                </div>
-                <div class='type__floor'>
-                  <div class='circle'></div>
-                  <div>趴在地上滑手機找現成的</div>
+                <div class='form__checkbox'>
+                    <label>
+                        <div class='checkbox__bed'>
+                            <input name='type' type='radio' value='1' id='circle' />躺在床上用想像力實作
+                        </div>
+                    </label>    
+                    <label>
+                        <div>
+                            <input name='type' type='radio' value='2' id='circle' />趴在地上滑手機找現成的
+                        </div>
+                    </label>
                 </div>
             </div>
             <div class='form__group'>
@@ -59,10 +63,10 @@
                 <div class='remark'>對活動的一些建議</div>
                 <div class='reply'><input type='suggestion' value='您的回答' /></>
             </div>
-        </form>
-        <input type='submit' id='submit' value='提交' />
-        <div class='form__bottom'>請勿透過表單送出您的密碼。</div>
-    </div>
+            <input type='submit' id='submit' value='提交' />
+            <div class='form__bottom'>請勿透過表單送出您的密碼。</div>
+        </div>
+    </form>
     <footer>© 2020 © Copyright. All rights Reserved.</footer>
 </body>
 
