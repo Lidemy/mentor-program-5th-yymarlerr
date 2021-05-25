@@ -7,7 +7,7 @@
     border-left: rgba(0, 0, 0, 0.3) 5px;
     border-bottom: rgba(0, 0, 0, 0.3) 5px;
     border-right: rgba(0, 0, 0, 0.3) 5px;
-    margin: auto;
+    margin: 50px auto;
     padding: 0px;
     box-shadow: 0 2.4px 5px 0 rgba(0, 0, 0, 0.3);
     background-color: var(--white);
@@ -92,7 +92,7 @@ input {
     display: flex;
 }
 
-.submit {
+#submit {
     width: 92px;
     height: 40px;
     margin-top: 55px;
@@ -100,8 +100,9 @@ input {
     background-color: #fad312;
     font-size: 15px;
     text-align: center;
-    line-height: 3em;
+    line-height: 2em;
     cursor: pointer;
+    color: black;
 }
 
 .form__bottom {
