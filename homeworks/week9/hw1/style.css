@@ -1,0 +1,108 @@
+.body {
+  margin: 0;
+  background:#f7f7f7;
+}
+
+.warning {
+  background: #ffc4c6;
+  color: #a20606;
+  text-align: center;
+  height: 30px;
+  padding-top: 10px;
+}
+  
+.board {
+  box-shadow: 1px 1px 3px #e8e8e8;
+  background: white;
+  width: 100%;
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 20px;
+}
+
+textarea {
+  border: 1px solid #c2dffb;
+  height: 100px;
+  width: 100%;
+  color: #583c63;
+  padding: 10px;
+  border-radius: 1%;
+}
+
+.board__submit-button {
+  border: 1px solid #c2dffb;
+  color: #583c63;
+  background: white;
+  margin-top: 10px;
+  width: 90px;
+  height: 35px;
+  border-radius: 2%;
+  cursor: pointer;
+}
+
+.hr {
+  color:#e8e8e8;
+  border-bottom: 1px solid;
+  margin-bottom: 20px;
+}
+
+.card__info {
+  display: flex;
+  max-width: 700px;
+  margin-top: 20px;
+}
+
+.card__avatar {
+  background-color: #e4f0fb;
+  min-width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 5px;
+}
+
+.card__author {
+  color: #5c9edc;
+}
+
+.card__author span {
+  color: #a0a0a0;
+}
+
+.card__content {
+  margin-top: 10px;
+  white-space: pre-line;
+}
+
+.greeting {
+  margin-bottom: 10px;
+}
+
+.nickname {
+  border: 1px solid #c2dffb;
+  color: #583c63;
+  background: white;
+  margin-bottom: 10px;
+  width: 250px;
+  height: 35px;
+  border-radius: 1%;
+}
+
+h3 {
+  color: #a20606;
+  font-size: 14px;
+}
+
+a {
+  border: 1px solid #c2dffb;
+  color: #583c63;
+  background: white;
+  margin-top: 10px;
+  width: 90px;
+  height: 35px;
+  border-radius: 2%;
+  display: inline-block;
+  text-align: center;
+  line-height: 2em;
+  cursor: pointer;
+  text-decoration: none;
+}
