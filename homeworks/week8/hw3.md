@@ -1,5 +1,5 @@
 ## 什麼是 Ajax？
-全名為 Asynchronous JavaScript and XML。任何非同步地跟伺服器交換資料的 JavaScript 都可以算是 AJAX。名稱中有 XML 是因為早期的資料格式多為 XML，但現用 JSON 格式較多。非同步的意思為，執行完一段程式碼後，不管有沒有得到 response，都會繼續執行下一行。
+全名為 Asynchronous JavaScript and XML。任何非同步地跟伺服器交換資料的 JavaScript 都可以算是 AJAX。名稱中有 XML 是因為早期的資料格式多為 XML，但現用 JSON 格式較多。非同步的意思為，執行完一段程式碼後，不等它執行完畢，就繼續執行下一行。
 
 範例如下：
 
@@ -30,22 +30,37 @@
 
 
 ## JSONP 是什麼？
-為 JSON with padding，是一種資料傳輸的方式。瀏覽器因安全性考量而有同源政策，而像 `<script` 或 `<img>` 等標籤因不受其限制，故將 JSON 格式的資料用符合 JavaScript 的語法包裹起來，並透過在 `<script>` 來獲得資料。舉例如下：
+為 JSON with padding，是一種資料傳輸的方式。瀏覽器因安全性考量而有同源政策，而像 `<script` 或 `<img>` 等標籤因不受其限制，故將 JSON 格式的資料用符合 JavaScript 的語法包裹起來，並透過在 `<script>` 來獲得資料。
+
+概念類似如下：
 
 * 先新增一個檔案叫做 `test.js`，裡面內容為
 
 ```
-response ({
-	"name": John,
-	"address": jeijieojiorf
-})
+receiveData({
+  data: 'test'
+});
 ``` 
-* 並利用 `<scipt src='./test.js'></script>` 來取的檔案內容
 * 再利用回傳函式的方式得到資料
 
 ```
 <script>
 function receviveData(response) {
+	console.log(response)
+}
+</script>
+<scipt src='./test.js'></script>
+```
+=> 便可以得到 test.js 裡面的資料： `data: 'test'`
+
+實際應用：用 Twitch 來舉例
+
+* Twitch 的 API 會回傳 JSON 格式資料，收到資料後再利用 callback 函式把資料叫出來
+
+```
+<script src"https://api.twitch.tv/kraken?client_id=XXXX&callback=foo"></script>
+<script>
+function foo(response) {
 	console.log(response)
 }
 </script>
