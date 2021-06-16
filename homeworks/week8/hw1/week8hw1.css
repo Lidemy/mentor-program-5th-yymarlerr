@@ -98,7 +98,7 @@ footer {
     box-sizing: border-box;
 }
 
-.bg {
+.card {
     background: url(games-bn.jpg) no-repeat;
     height: 767px;
     margin: 0 auto 192px;

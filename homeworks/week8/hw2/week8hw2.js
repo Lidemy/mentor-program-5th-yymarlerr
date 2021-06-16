@@ -7,9 +7,18 @@ request.setRequestHeader('Client-id', 'fnh3sbi5r9kkf5u93s8lvqou9fz7is')
 request.setRequestHeader('Accept', 'application/vnd.twitchtv.v5+json')
 
 request.onload = () => {
+  const json = request.responseText
+  const data = JSON.parse(json)
+
   if (request.status >= 200 && request.status < 400) {
-    const json = request.responseText
-    const data = JSON.parse(json)
+    try {
+      JSON.parse(request.responseText)
+    } catch (err) {
+      alert('系統不穩定')
+      console.log(err)
+      return
+    }
+
     for (let i = 0; i < 5; i++) {
       const gameList = document.createElement('ul')
       gameList.classList.add(`game${i}`)
@@ -18,57 +27,25 @@ request.onload = () => {
       document.querySelector('.game-name').innerText = `${data.top[0].game.name}`
     }
 
-    const gameNamefirst = data.top[0].game.name
-    const gameNamesecond = data.top[1].game.name
-    const gameNamethird = data.top[2].game.name
-    const gameNameforth = data.top[3].game.name
-    const gameNamefifth = data.top[4].game.name
+    const game = []
+    for (let i = 0; i < data.top.length; i++) {
+      game.push(data.top[i].game.name)
+    }
 
-    const firstGame = data.top[0].game.name.split(' ').join('%20')
-    const secondGame = data.top[1].game.name.split(' ').join('%20')
-    const thirdGame = data.top[2].game.name.split(' ').join('%20')
-    const forthGame = data.top[3].game.name.split(' ').join('%20')
-    const fifthGame = data.top[4].game.name.split(' ').join('%20')
-
-    SendtheRequest(firstGame)
+    sendTheRequest(game[0].split(' ').join('%20'))
 
     document.querySelector('nav').addEventListener('click',
       (e) => {
         if (e.target.classList.contains('game0')) {
-          const topStreams = document.querySelectorAll('.stream')
-          for (let i = 0; i < topStreams.length; i++) {
-            topStreams[i].classList.add('hide')
-          }
-          document.querySelector('.game-name').innerText = `${gameNamefirst}`
-          SendtheRequest(firstGame)
+          createContent(game[0])
         } else if (e.target.classList.contains('game1')) {
-          const topStreams = document.querySelectorAll('.stream')
-          for (let i = 0; i < topStreams.length; i++) {
-            topStreams[i].classList.add('hide')
-          }
-          document.querySelector('.game-name').innerText = `${gameNamesecond}`
-          SendtheRequest(secondGame)
+          createContent(game[1])
         } else if (e.target.classList.contains('game2')) {
-          const topStreams = document.querySelectorAll('.stream')
-          for (let i = 0; i < topStreams.length; i++) {
-            topStreams[i].classList.add('hide')
-          }
-          document.querySelector('.game-name').innerText = `${gameNamethird}`
-          SendtheRequest(thirdGame)
+          createContent(game[2])
         } else if (e.target.classList.contains('game3')) {
-          const topStreams = document.querySelectorAll('.stream')
-          for (let i = 0; i < topStreams.length; i++) {
-            topStreams[i].classList.add('hide')
-          }
-          document.querySelector('.game-name').innerText = `${gameNameforth}`
-          SendtheRequest(forthGame)
+          createContent(game[3])
         } else if (e.target.classList.contains('game4')) {
-          const topStreams = document.querySelectorAll('.stream')
-          for (let i = 0; i < topStreams.length; i++) {
-            topStreams[i].classList.add('hide')
-          }
-          document.querySelector('.game-name').innerText = `${gameNamefifth}`
-          SendtheRequest(fifthGame)
+          createContent(game[4])
         }
       }
     )
@@ -81,7 +58,7 @@ request.onerror = (error) => {
 
 request.send()
 
-function SendtheRequest(gameName) {
+function sendTheRequest(gameName) {
   const urlAll = `https://api.twitch.tv/kraken/streams/?limit=20&game=${gameName}`
   const requestAll = new XMLHttpRequest()
   requestAll.open('GET', urlAll, 'true')
@@ -115,4 +92,13 @@ function SendtheRequest(gameName) {
     console.log(error.target.status)
   }
   requestAll.send()
+}
+
+function createContent(data) {
+  const topStreams = document.querySelectorAll('.stream')
+  for (let i = 0; i < topStreams.length; i++) {
+    topStreams[i].parentNode.removeChild(topStreams[i])
+  }
+  document.querySelector('.game-name').innerText = `${data}`
+  sendTheRequest(data.split(' ').join('%20'))
 }
