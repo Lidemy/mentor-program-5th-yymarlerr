@@ -27,18 +27,18 @@
             </div>
             <div class='form__group' id='name'>
                 <div class='question'>暱稱</div>
-                <div class='reply'><input type='name' name='name'/></div>  
-                <div class='form__reminder'>資料不完整</div>
+                <div class='reply'><input type='text' name='name'/></div>  
+                <div class='form__reminder hide'>資料不完整</div>
             </div>
             <div class='form__group' id='email'>
                 <div class='question'>電子郵件</div>
-                <div class='reply'><input type='email' name='email' /></div>
-                <div class='form__reminder'>資料不完整</div>
+                <div class='reply'><input type='text' name='email' /></div>
+                <div class='form__reminder hide'>資料不完整</div>
             </div>
             <div class='form__group' id='number'>
                 <div class='question'>手機號碼</div>
-                <div class='reply'><input type='phonenumber' name='number' /></div>
-                <div class='form__reminder'>資料不完整</div>
+                <div class='reply'><input type='text' name='number' /></div>
+                <div class='form__reminder hide'>資料不完整</div>
             </div>
             <div class='form__group'>
                 <div class='question'>
@@ -47,26 +47,26 @@
                 <div class='form__checkbox'>
                     <label>
                         <div class='checkbox__bed'>
-                            <input name='type' type='radio' value='躺在床上用想像力實作' id='circle' />躺在床上用想像力實作
+                            <input name='type' type='radio' id='circle' value='躺在床上用想像力實作' />躺在床上用想像力實作
                         </div>
                     </label>    
                     <label>
                         <div>
-                            <input name='type' type='radio' value='趴在地上滑手機找現成的' id='circle' />趴在地上滑手機找現成的
+                            <input name='type' type='radio' id='circle' value='趴在地上滑手機找現成的' />趴在地上滑手機找現成的
                         </div>
-                        <div class='form__reminder'>資料不完整</div>
+                        <div class='form__reminder hide'>資料不完整</div>
                     </label>
                 </div>
             </div>
             <div class='form__group' id='sources'>
                 <div class='question'>怎麼知道這個活動的？</div>
-                <div class='reply'><input type='question' name='sources'/></div>
-                <div class='form__reminder'>資料不完整</div>
+                <div class='reply'><input type='text' name='sources'/></div>
+                <div class='form__reminder hide'>資料不完整</div>
             </div>
             <div class='form__group'>
                 <div class='other'>其他</div>
-                <div class='remark'>對活動的一些建議</div>
-                <div class='reply'><input type='suggestion' name='suggestion' /></div>
+                <div class='suggestion'>對活動的一些建議</div>
+                <div class='reply'><input type='text' name='suggestion' /></div>
             </div>
             <input type='submit' id='submit' value='提交' />
             <div class='form__bottom'>請勿透過表單送出您的密碼。</div>

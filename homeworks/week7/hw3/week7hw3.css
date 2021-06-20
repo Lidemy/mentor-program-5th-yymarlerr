@@ -1,18 +1,29 @@
+* {
+  margin: 0;
+}
+
 .to-do {
-    width: 600px;
-    height: 700px;
-    margin: 50px auto;
+    max-width: 600px;
+    min-height: 650px;
+    margin: auto auto;
     background: url(bg.jpg) no-repeat;
     font-family: fantasy;
     text-align: left;
     font-size: 25px;
+    box-shadow: 1px 1px 9px 1px rgba(0, 0, 0, 0.2);
 }
 
 h1 {
     background: lightblue;
-    padding: 50px 30px;
+    padding: 15px 30px;
     text-align: center;
+    line-height: 1em;
+    padding-top: 25px;
     
+}
+
+.list {
+  padding-left: 10px;
 }
 
 #list__content {
@@ -38,13 +49,25 @@ h1 {
     cursor: pointer;
 }
 
-.newItem {
-    width: 500px;
-    height: 25px;
+.new-item {
+    max-width: 100%;
+    min-height: auto;
     margin-top: 10px;
-    display: flex;
     justify-content: space-between;
+    white-space: pre-line;
+    padding: 0 10px;
+    display: flex;
+    flex-wrap: wrap;
+    word-break: break-all;
 }
+
+
+.new-item > span {
+  max-width: 300px;
+  flex-wrap: wrap;
+  flex: 1;
+}
+
 
 input[type="checkbox"]:checked + span {
     width: 200px;
@@ -52,6 +75,7 @@ input[type="checkbox"]:checked + span {
     color: transparent;
     background: url(checkbox.jpg) no-repeat;
     background-size: contain;
+    margin-right: 10px;
 }
 
 input[type="checkbox"] + span {
@@ -60,6 +84,7 @@ input[type="checkbox"] + span {
     color: transparent;
     background: url(unchecked.jpg) no-repeat;
     background-size: contain;
+    margin-right: 10px;
 }
 
 input[type="checkbox"] {
@@ -85,9 +110,8 @@ input[type="checkbox"]:hover {
     cursor: pointer;
 }
 
-.checked {
+.checked > span {
     text-decoration: line-through;
     color: rgb(161, 159, 159);
 }
-
 
