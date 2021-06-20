@@ -142,6 +142,9 @@ footer {
     font-size: 18px;
 }
 
+.hide {
+  display: none;
+}
 
 @media(max-width: 768px) {
     .navbar .wrapper {

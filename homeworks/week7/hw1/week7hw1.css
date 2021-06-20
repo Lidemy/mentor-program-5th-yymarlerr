@@ -103,22 +103,24 @@ input {
 }
 
 footer {
-    width: 1920px;
     height: 60px;
     background: black;
     font-family: MicrosoftJhengHei;
     font-size: 13px;
     text-align: center;
     color: #999999;
-    margin-top: 100px;
+    margin: 100px auto 0 auto;
     line-height: 5em;
-    transform: translate(-245px, 0);
 }
 
 .form__reminder {
-    color: transparent;
+    color: red;
     margin-top: 7px;
     font-size: 12px;
+}
+
+.hide {
+  visibility: hidden;
 }
 
 
