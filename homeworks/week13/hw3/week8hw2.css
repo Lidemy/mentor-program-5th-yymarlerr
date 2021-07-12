@@ -1,0 +1,131 @@
+.top-games {
+    max-width: 1600px;
+}
+
+.section__one {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1px 20px;
+    margin: 1px auto;
+}
+
+nav {
+    display: flex;
+    justify-content: space-around;
+    text-align: center;
+    align-items: center;
+}
+
+ul {
+    margin-right: 10px;
+    padding: 20px 10px;
+}
+
+ul:hover {
+    color: white;
+    background: rgb(51, 51, 51);
+    cursor: pointer;
+    transition-delay: background color 0.2s;
+}
+
+h2, h3 {
+    text-align: center;
+    color: white;
+}
+
+h2 {
+    padding-top: 40px;
+}
+
+.section__two {
+    background: url(forest.jpeg) center/cover;
+    background-repeat: repeat;
+    min-height: 1000px;
+    margin: auto auto;
+}
+
+.hide {
+    display: none;
+}
+
+.game-list {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+}
+
+.game-profile {
+    margin: 50px auto;
+    cursor: pointer;
+}
+
+.name {
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.stream-list {
+    display: flex;
+    flex-wrap: wrap;
+    color: white;
+    text-align: center;
+    justify-content: center;
+}
+
+.stream {
+    padding: 10px 10px;
+    padding-bottom: 20px;
+}
+
+.stream:hover {
+    transform: scale(1.2);
+}
+
+.channel-name {
+    text-align: left;
+    font: 20px;
+}
+
+video {
+    width: 100%;
+    height: 100%;
+}
+
+iframe {
+    width: 100%;
+    height: 100%;
+}
+
+.logo {
+    height: 50px;
+    width: 50px;
+    border-radius: 50%;
+}
+
+.stream-content {
+    width: 320px;
+    height: 250px;
+    background: rgb(54, 54, 54);
+    text-align: left;
+
+}
+
+.channel-title {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+
+.logo-desc {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.desc-content {
+    width: 280px;
+    padding-right: 40px;
+    padding-left: 10px;
+    
+}

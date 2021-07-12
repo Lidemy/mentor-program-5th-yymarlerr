@@ -1,0 +1,65 @@
+@import '_utils';
+
+nav {
+  display: flex;
+  color: $grey;
+  cursor: pointer;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+a {
+  text-decoration: none;
+  color: $grey;
+}
+
+.cards {
+  max-width: 900px;
+  background: $white;
+  margin: 0 auto;
+  right: 0;
+  left: 0;
+  margin-top: -30px;
+  padding: 10px;
+}
+
+.card {
+  border: #9a9a9a 1px solid;
+  margin-bottom: 24px;
+  padding: 30px;
+}
+
+.card_first_part {
+  display: flex;
+  justify-content: space-between;
+}
+
+hr {
+  margin: 10px 0;
+}
+
+footer {
+  background: #323232;
+  color: #fefefe;
+  min-height: 35px;
+  text-align: center;
+  line-height: 2.5em;
+  font-size: 14px;
+  width: 100%;
+  margin-top: 100px;
+}
+
+.hide {
+  display: none;
+}
+
+.time {
+  background:#eeeeee;
+  min-width: 840px;
+  height: 40px;
+  line-height: 2.5em;
+  padding-left: 10px;
+  margin-top: 10px;
+}
