@@ -1,7 +1,2 @@
 ## 請簡單解釋什麼是 Single Page Application
-
-
-## SPA 的優缺點為何
-
-
-## 這週這種後端負責提供只輸出資料的 API，前端一律都用 Ajax 串接的寫法，跟之前透過 PHP 直接輸出內容的留言板有什麼不同？
+又稱為單頁應用，不需要從伺服器重新載入整個新頁，便可以作編輯、刪除⋯⋯等功能。## SPA 的優缺點為何#### 優點* 避免頁面切換時破壞使用者體驗，像是使用臉書時，我們只要一直往下滑，就會有資料顯示* 前後端職責區分更明確，後端專注於 API，前端將心力放在怎麼用後端提供得 API，來提供優質的使用者體驗給用戶 * 可以更快速的取得資料* 使用 Chrome ，可以輕鬆除錯#### 缺點* 會有 SEO 的問題，因為 URL 通常沒有變動* 因頁面沒有更動，URL 網址列沒有改變，必須自訂狀態作判斷依據* application 會長時間被使用，須注意是否有記憶體流失的問題* 須注意是否有 XSS 問題，原文如下：> Another critical thing to remember about using or building a SPA is security. Due to cross-site scripting (XSS) and the fact that no new pages are loaded, hackers can gain access to your website and inject new scripts on the client-side. （這不是很了解 no new pages are loaded 和 XSS 的關聯）#### 結論什麼時候適合使用？* 當你想要一個可以動態新增的平台，而且資料沒有很多時* 開發手機 APP 的時候，因為 API 可以同時給網頁和手機應用程式使用* 不需要 SEO 的網站，像是社交軟體[參考資料ㄧ] (https://docs.microsoft.com/zh-tw/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)[參考資料二] (https://docs.microsoft.com/zh-tw/dotnet/architecture/modern-web-apps-azure/choose-between-traditional-web-and-single-page-apps)[參考資料三] (https://zh.wikipedia.org/wiki/%E5%86%85%E5%AD%98%E6%B3%84%E6%BC%8F)## 這週這種後端負責提供只輸出資料的 API，前端一律都用 Ajax 串接的寫法，跟之前透過 PHP 直接輸出內容的留言板有什麼不同？差別在於這週後端只負責提供資料，而 JavaScript 用動態新增的方式，取得資料，並呈現在畫面。點進去 dev tools 時，只看得到 JavaScript 的語法，看不到實際的資料。上一週，資料在後端會先經過 PHP 的渲染，才呈現到前端的畫面上。所以點 dev tools 的時候，看得到 elements 那邊有用 PHP 和 HTML 的語法構成的資料。
