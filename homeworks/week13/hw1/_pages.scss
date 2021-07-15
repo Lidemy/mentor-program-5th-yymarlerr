@@ -1,0 +1,141 @@
+@import "_component";
+@import "_utils";
+@import "_layout";
+
+body {
+    margin: 0;
+    background:$white;
+}
+
+.section {
+  &_first {
+    @extend %flex-center;
+  }
+
+  &_second {
+    @extend %flex-center;
+  }
+
+  &_banner {
+    width: 100%;
+    height: 241px;
+    background: linear-gradient(to bottom, #000000, #434343);
+    color: #eeeeee;
+    flex-direction: column;
+    @extend %flex-center;
+  }
+
+  &_header {
+    display: inline-flex;
+    width: 100%;
+    padding: 0px 94px;
+    justify-content: space-between;
+    text-align: center;
+    box-sizing: border-box;
+  }
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.blog_type {
+  background:#eeeeee;
+  max-width: 100%;
+  height: 40px;
+  line-height: 2.5em;
+  margin: 20px 0;
+  padding-left:10px;
+}
+
+textarea {
+  min-width: 100%;
+}
+
+.enter_blog_title {
+  min-width: 100%;
+  height: 3em;
+}
+
+.submit_blog {
+  border: $darkgrey-button solid 1px;
+  height: 41px;
+  width: 133px;
+  padding: 10px;
+  text-align: center;
+  margin-top:50px;
+  cursor: pointer;
+  align-self: flex-end;
+  background: $white;
+  color: black;
+}
+
+.read_article {
+  border: $darkgrey-button solid 1px;
+  height: 20px;
+  width: 113px;
+  padding: 10px;
+  text-align: center;
+  margin-top:50px;
+  cursor: pointer;
+}
+
+.edit_button {
+  border: $darkgrey-button solid 1px;
+  padding: 5px;
+  cursor: pointer;
+  margin-left: 5px;
+}
+
+.hide_overflow {
+  height: 92px; 
+  overflow: hidden;
+}
+
+.upper_part {
+  min-height:calc(100% - 100px);
+}
+
+.article {
+  &_list {
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+  }
+
+  &_info {
+    display: flex;
+    padding-left: 10px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  &_list_title {
+    cursor: pointer;
+  }
+
+  &_content {
+    margin-top: 8px;
+    word-break: break-all;
+    white-space: pre-line;
+    line-height: 1.5em;
+  }
+}
+
+
+.article_info div:nth-child(2) {
+  display: flex;
+  align-items: center;
+  color: #8f8f8f;
+  padding-right: 10px;
+}
+
+.article_list_title a {
+  color: black;
+}
+
+.reminder {
+  color: red;
+  font-size: 12px;
+}
