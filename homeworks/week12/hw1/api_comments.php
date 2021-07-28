@@ -18,23 +18,12 @@
     die();
   }
 
-  if (
-    empty($_GET['before'])
-  ) {
-    $json = array(
-    "ok" => false,
-    "message" => "Please send the value for before in url"
-    );
-
-    $response = json_encode($json);
-    echo $response;
-    die();
-  }
-
+  // 計算有幾筆留言 
   $sqlCounts = 'SELECT COUNT(*) FROM yide_board_discussions';
   $stmtCounts = $conn->prepare($sqlCounts);
   $resultCounts = $stmtCounts->execute();
 
+  // 如果沒有計算成功
   if(!$resultCounts) {
     $json = array(
       "ok" => false,
@@ -44,9 +33,28 @@
     echo $response;
     die();
   }
+  
   $resultCounts = $stmtCounts->get_result();
   $rowCounts = $resultCounts->fetch_assoc();
   $total = $rowCounts["COUNT(*)"];
+  $counts = array();
+  array_push($counts, array(
+    "total" => $total
+  ));
+
+  if (
+    empty($_GET['before'])
+  ) {
+    $json = array(
+    "ok" => false,
+    "counts" => $counts,
+    "message" => "Please send the value for before in url"
+    );
+
+    $response = json_encode($json);
+    echo $response;
+    die();
+  }
 
   $sql = 'SELECT * FROM yide_board_discussions
     WHERE site_key = ? AND id < ? ORDER BY id DESC LIMIT 5';

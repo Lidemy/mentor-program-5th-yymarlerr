@@ -1,7 +1,7 @@
 /* eslint-env jquery */
-getComments('sonya', 3, (data) => {
-  const comments = data.discussion
-  const { total } = comments[0]
+getCounts('sonya', (data) => {
+  const { counts } = data
+  const { total } = counts[0]
   let number = total + 1
 
   getComments('sonya', number, (data) => {
@@ -91,6 +91,20 @@ function getComments(siteKey, before, callback) {
       if (!data.ok) {
         alert(data.message)
         return
+      }
+      callback(data)
+    })
+}
+
+function getCounts(siteKey, callback) {
+  $.ajax({
+    type: 'GET',
+    url: `http://mentor-program.co/mtr04group1/yide/week12/hw1/api_comments.php?site_key=${siteKey}`
+  })
+    .done((data) => {
+      data = JSON.parse(data)
+      if (!data) {
+        console.log('Error occurs when counting the numbers of comments')
       }
       callback(data)
     })
