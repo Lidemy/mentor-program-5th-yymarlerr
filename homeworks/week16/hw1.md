@@ -23,13 +23,17 @@ console.log(5)
 
 把 `setTimeout(() => {
   console.log(2)
-}, 0)` 丟到 call stack 執行，然後 callback function 被放到 Callback Queue 裡面，等到 call stack 清空才會被執行。
+}, 0)` 丟到 call stack 執行，然後 callback function `() => {
+  console.log(2)
+}` 被放到 Callback Queue 裡面，等到 call stack 清空才會被執行。
 
 把 `console.log(3)` 丟到 call stack ，執行後，得到 3。
 
 把 `setTimeout(() => {
   console.log(4)
-}, 0)` 丟到 call stack 執行，然後 callback function 被放到 Callback Queue 裡面，等到 call stack 清空才會被執行。
+}, 0)` 丟到 call stack 執行，然後 callback function `() => {
+  console.log(4)
+}` 被放到 Callback Queue 裡面，等到 call stack 清空才會被執行。
 
 把 `console.log(5)` 放到 call stack，執行後得到 5。
 
