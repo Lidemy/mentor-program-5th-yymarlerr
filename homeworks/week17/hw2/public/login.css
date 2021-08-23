@@ -1,0 +1,232 @@
+.navbar {
+    box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+    padding: 0px 21px;
+}
+
+.navbar .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 84px;
+    background: white;
+}
+
+.footer__bottom {
+    background: #35564b;
+    padding: 12px 0px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.footer__top {
+    background: #e8efee;
+    padding: 32px;
+    color: #484848;
+}
+
+.footer__top .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__info {
+    margin-right: 16pxl
+}
+
+.footer__info div + div {
+    margin-top: 10px;
+}
+
+.footer__site {
+    font-size: 36px;
+    color: #489846
+}
+
+footer {
+    margin-top: -192px;
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0px 12px;
+}
+
+.navbar__site-name {
+    color: #489846;
+    font-size: 36px;
+    font-family: Questrial;
+}
+
+.navbar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 18px;
+}
+
+.navbar__list li {
+    margin-left: 12px;
+    border-radius: 8px;
+    transition: background 0.1s ease-in;
+}
+
+.navbar__list li.login,
+.navbar__list li:hover {
+    background: #ff7286;
+}
+
+.navbar__list li.login a,
+.navbar__list li:hover a {
+    color: white;
+}
+
+.navbar__list li a {
+    text-decoration: none;
+    color: black;
+    padding: 12px 24px;
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    background: url(games-bn.jpg) no-repeat;
+    height: 767px;
+    margin: 0 auto 192px;
+    background-size: cover;
+    position: relative;
+    
+}
+
+.prize {
+    background: white;
+    max-width: 420px;
+    height: 490px;
+    margin: 50px auto;
+    border-radius: 16px;
+    padding-top: 15px;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    flex-direction: column;
+}
+
+h2 {
+    text-align: center;
+    color: #5ec1b6;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+.hide {
+    display: none;
+}
+
+.information {
+    display: flex;
+    font-size: 14px;
+    align-items: flex-start;
+    justify-content: left;
+    line-height: 1.5em;
+    border-bottom: 1px #cdcdcd;
+}
+
+.information__content input {
+  width: 250px;
+  height: 25px;
+  border: #8080804d 1px solid;
+  box-shadow: rgb(0 0 0 / 10%) 0px 5px 8px;
+  padding-left: 0;
+}
+
+.information__title {
+    margin: 10px 10px 10px 15px;
+    width: 110px;
+    padding-left: 30px;
+    font-weight: bold;
+    flex: 1;
+}
+
+.information__content {
+    width: 290px;
+    margin: 10px 35px 10px 0px;
+}
+
+hr {
+    width: 390px;
+    border-top: 1px dotted #cdcdcd;
+    border-bottom: 0;
+    border-right: 0;
+    border-left: 0;
+}
+
+.button {
+    width: 300px;
+    height: 40px;
+    background: #e62a45;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+    margin: 30px auto;
+    cursor: pointer;
+}
+
+button:hover {
+    cursor: pointer;
+}
+
+.reminder {
+  padding-left: 30px;
+  color: red;
+  font-size: 10px;
+}
+
+@media(max-width: 768px) {
+    .navbar .wrapper {
+        height: 120px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+    .navbar_site-name {
+        margin-top: 10px;
+    }
+
+    .navbar__list {
+        display: flex;
+        width: 100%;
+        align-self: flex-end;
+    }
+
+    .navbar__list li {
+        flex: 1;
+        margin-left: 0px;
+        border-radius: 0px;
+        text-align: center;
+    }
+
+    .footer__top .wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .footer__info {
+        margin-right: 0;
+        margin-top: 16px;
+    }
+
+    .prize {
+        height: 558px;
+    }
+
+
+}

@@ -1,0 +1,23 @@
+<DOCTYPE! html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>部落格</title>
+  <link rel="stylesheet" href="/public/login.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <form class="cards" method="POST" action="/login">
+      <h1>Log In</h1>
+      <div class="username" >USERNAME</div>
+      <input type="text" name="username" />
+      <div class="password" >PASSWORD</div>
+      <input type="password" name="password" />
+      <div class="reminder"><%= errorMessage %></div>
+      <div><input type="submit" value="SIGN IN" class="submit"/></div>
+    </form>
+  </div>
+</body>
+</html>

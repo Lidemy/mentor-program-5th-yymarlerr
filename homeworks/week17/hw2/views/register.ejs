@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>餐廳官網</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css' />
+  <link rel='stylesheet' href='/public/register.css' />
+</head>
+
+<body>
+    <%- include("./template/navbar")%>
+    <div class='card'>
+        <form class='prize' method="POST" action="/register">
+            <div class='prize__content'>
+                <h2>註冊</h2>
+                <div class='information'>
+                    <div class='information__title'>
+                        username：
+                    </div>
+                    <div class='information__content'>
+                        <input type="text" name="username" />
+                    </div>
+                </div>
+                <hr />
+                <div class='information'>
+                    <div class='information__title'>password：</div>
+                    <div class='information__content'>
+                      <input type="password" name="password" />
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <input type="submit" class='button' />
+            <div class="reminder"> <%= errorMessage %></div>
+        </form>
+    </div>
+    <%- include("./template/footer")%>
+    <script src='week8hw1.js'>
+    </script>
+</body>
+</html>

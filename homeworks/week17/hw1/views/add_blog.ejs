@@ -1,0 +1,52 @@
+<DOCTYPE! html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>部落格</title>
+  <link rel="stylesheet" href="/public/style.css">
+  <script src="https://cdn.ckeditor.com/4.16.1/standard-all/ckeditor.js"></script>
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="upper_part">
+      <%- include('./template/header') %>
+      <section class="section_banner">
+        <h2>新增文章</h2>
+        <p>Ｗelcome to My Blog</p>
+      </section>
+      <main>
+        <div class="cards">
+          <div class="card">
+          <div class="warning reminder"><%- errorMessage %></div>
+            <div class="card_first_part">
+              <h3 class="publish_blog">發表文章：</h3>
+            </div>
+            <form method="POST" action="/add_blog">
+              <div><input type="text" class="enter_blog_title" placeholder="標題" name="title"/></div>
+              <select>
+                  <option>心情記事</option>
+                  <option selected>記錄</option>
+                  <option>技術分享</option>
+                  <option>其他</option>
+              </select>
+              <textarea cols="10" id="editor1" name="content" rows="30" data-sample-short></textarea>
+              <input class="submit_blog" name="type" type="submit" value="送出文章" />
+            </form>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+    Copyright © 2020 Yide's Blog All Rights Reserved.
+    </footer>
+  </div>
+  <script>
+    CKEDITOR.replace('editor1', {
+      extraPlugins: 'editorplaceholder',
+      editorplaceholder: 'Start typing here...'
+    });
+  </script>
+</body>
+</html>

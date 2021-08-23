@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>餐廳官網</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css' />
+  <link rel='stylesheet' href='/public/admin.css' />
+</head>
+
+<body>
+    <%- include("./template/navbar")%>
+    <h4><%= errorMessage %></h3>
+    <section class="wrapper">
+      <% for (let prize of prizes) { %>
+      <div class="card">
+        <div class="card-body">
+          <h3 class="card-title"><%= prize.prize %></h5>
+          <p class="card-text">說明：<%= prize.desc %></p>
+          <p class="card-text">圖片網址：<%= prize.link %></p>
+          <p class="card-text">中獎機率：<%= prize.percentage %>%</p>
+          <a href="update/<%= prize.id %>" class="edit">編輯</a>
+          <a href="delete/<%= prize.id %>" class="delete">刪除</a>
+        </div>
+      </div>
+      <% } %>
+      <div class="add_lottery"><a href="add">+</a></div>
+      
+      
+
+    </section>
+    <%- include("./template/footer")%>
+</body>
+</html>
