@@ -24,7 +24,8 @@ console.log(b)
 
 ```
 
-會得到：
+####會得到：
+```
 undefined
 5
 6
@@ -32,17 +33,200 @@ undefined
 1
 10
 100
+```
 
-fn() 先被呼叫， 因變數宣告會被 hoisting 但賦值不會的關係，所以第一個 console.log(a) 會得到 undefined。
+####詳細內容：
 
-再來因為變數 a 被賦值了 5，所以 console.log(a) 會是 5。
+* 宣告 `var a = 1`、函式 `fn()`，進入 global Execution Contexts，並初始化 global VO：
 
-接著 fn2() 被呼叫，console.log(a) 會印出 6，因為 function 裡面沒有宣告變數 a，所以會去上一層找，這時 a 在被賦值 5 之後，又被 a = a + 1 了，所以得到 6。
+```
+global EC: {
+	global VO: {
+		fn: function
+		a: undefined
+	},
+	scopeChain: [globalEC.VO]
+}
 
-跳到下一行 a 被賦值 20，所以第四個 console.log(a) 會是 20。
+```
 
-到 f(n) 的下一行，console.log(a) 會是 1 ，因為變數 a 在全域時被宣告為 1。
+* 開始執行程式碼，並進入 fn 的 Execution Contexts，並初始化 fn 的 VO：
 
-接著 conosole.log(a) 會是 10，因為重新賦值 10 給 a。
+```
+fn EC: {
+	fn AO: {
+	  	fn2: function
+	  	a: undefined
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
 
-再來 console.log(b) 會是 100，因為 b 在 fn2() 被宣告，但是因為沒有用 var 或 let 或 const 宣告，所以會是全域變數。
+global EC: {
+	global VO: {
+	 	 fn: fumction
+	 	 a: 1
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```
+
+* 開始執行程式碼，第一個 `console.log(a)` 為 undefined
+
+```
+fn EC: {
+	fn AO: {
+		 fn2: function
+		 a: undefined
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
+
+global EC: {
+	global VO: {
+		 fn: fumction
+		 a: 1
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```
+* 變數 a 被賦值 5，所以第二個 `console.log(a)` 為 5
+
+```
+fn EC: {
+	fn AO: {
+		fn2: function
+		a: 5
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
+
+global EC: {
+	global VO: {
+	 	fn: fumction
+	 	a: 1
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```
+
+* `a++`，所以 a 會變成 6
+* `var a`，因為已經有 a 了，所以 a 的值不會變
+* 呼叫 `fn2`，進入 fn2 的 Execution Contexts ，並初始化 fn2 的 VO，因為 fn2 裡面沒有宣告 function、變數、傳參數，所以 VO 會是空的
+* 開始執行程式碼，第三個 console.log(a) 為 6
+
+```
+fn2 EC: {
+	fn2 AO: {
+ 
+	},
+	scopeChain: [fn2EC.AO, fnEC.AO, globalEC.VO]
+}
+
+
+fn EC: {
+	fn AO: {
+		fn2: function
+		a: 6
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
+
+
+global EC: {
+	global VO: {
+		fn: fumction
+		a: 1
+	},
+	scopeChain: [globalEC.VO]
+}
+
+
+```
+
+* 程式碼跑到 a = 20，因為 fn2 的 VO 沒有 a，所以會往上找到 fn 的 VO，發現有 a，所以 a 變成 20
+* 程式碼跑到 b = 100，因為 fn2 和 fn 的 VO 都沒有 b，所以會往上找到 global 的 VO，在 global 宣告 b 為 100
+
+
+```
+fn2 EC: {
+	fn2 AO: {
+  
+	},
+	scopeChain: [fn2EC.AO, fnEC.AO, globalEC.VO]
+}
+
+fn EC: {
+	fn AO: {
+		fn2: function
+		a: 20
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
+
+global EC: {
+	global VO: {
+	 	fn: fumction
+		a: 1
+		b: 100
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```
+
+* fn2 執行完畢，EC pop off。程式碼跑到下一行 `console.log(a)`，印出 20
+
+```
+fn EC: {
+	fn AO: {
+		fn2: function
+		a: 20
+	},
+	scopeChain: [fnEC.AO, globalEC.VO]
+}
+
+
+global EC: {
+	global VO: {
+		fn: fumction
+		a: 1
+		b: 100
+	},
+	scopeChain: [globalEC.VO]
+}
+
+
+```
+
+* fn 執行完畢，EC pop off。程式碼跑到下一行 `console.log(a)`，會印出 1
+
+```
+global EC: {
+	global VO: {
+		fn: fumction
+		a: 1
+		b: 100
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```
+
+* 程式碼跑到下一行 `a = 10`，a 的值會變成 10
+* 所以下一行的 `console.log(a)` 會印出 10
+* 下一行的 `console.log(b)` 會印出 100
+
+```
+global EC: {
+	global VO: {
+		fn: fumction
+		a: 10
+		b: 100
+	},
+	scopeChain: [globalEC.VO]
+}
+
+```

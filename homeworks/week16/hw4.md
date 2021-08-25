@@ -22,12 +22,18 @@ hello() // ??
 
 ```
 
-會得到：
+####會得到：
+```
 2
 2
 undefined
+```
 
-在物件導向的環境下， this 的值會是呼應他的函式。所以 `obj.inner.hello()`  段程式碼，裡面的 this 會是 obj.inner 這個物件，而他的 value 為 2，所以會得到 2。
+####詳細內容：
+
+在物件導向的環境下， this 的值會依照他怎麼被呼叫，而決定他在哪個物件底下。
+
+所以 `obj.inner.hello()`  段程式碼，裡面的 this 會是 obj.inner 這個物件，而他的 value 為 2，所以會得到 2。
 
  `obj2.hello()` 的 this 會是 `obj2`，也就是 obj.inner，所以會得到 2。
 
