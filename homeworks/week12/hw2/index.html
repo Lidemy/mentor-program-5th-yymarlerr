@@ -48,169 +48,27 @@
 
 <body>
   <div class="container">
-  <div><h1>todos</h1></div>
-  <div class="card shadow" style="width: 30rem;">
-    <div class="input-group">
-      <button class="btn btn-outline-secondary hide" type="button" id="button-addon1">Check All</button>
-      <input type="text" class="form-control" placeholder="what needs to be done?" aria-label="Example text with button addon" aria-describedby="button-addon1">
-    </div>
-    <ul class="list-group list-group-flush"></ul>
-    <div class="footer hide">
-      <div class="list-group-item d-flex justify-content-between text-muted">
-        <div class="counts">Items Left</div>
-        <div class="d-flex status-button">
-          <div class="px-1 status status-all">All</div>
-          <div class="px-1 status status-active">Active</div>
-          <div class="px-1 status status-completed">Completed</div>
+    <div><h1>todos</h1></div>
+    <div class="card shadow" style="width: 30rem;">
+      <form class="input-group">
+        <button class="btn btn-outline-secondary hide" type="button" id="button-addon1">Check All</button>
+        <input type="text" class="form-control" placeholder="what needs to be done?" aria-label="Example text with button addon" aria-describedby="button-addon1">
+        <input type="submit" class="hide" />
+      </form>
+      <ul class="list-group list-group-flush"></ul>
+      <div class="footer hide">
+        <div class="list-group-item d-flex justify-content-between text-muted">
+          <div class="counts">Items Left</div>
+          <div class="d-flex status-button">
+            <div class="px-1 status status-all">All</div>
+            <div class="px-1 status status-active">Active</div>
+            <div class="px-1 status status-completed">Completed</div>
+          </div>
+          <div class="clear">Clear Completed</div>
         </div>
-        <div class="clear">Clear Completed</div>
-      </div>
-    <div>
+      <div>
+    </div>
   </div>
-
-
-   
-  </div>
-  <script>
-    function escape(unsafe) {
-      return unsafe
-        .replace(/&/g, "&amp;")
-        .replace(/</g, "&lt;")
-        .replace(/>/g, "&gt;")
-        .replace(/"/g, "&quot;")
-        .replace(/'/g, "&#039;");
-    }
-    
-    //新增
-    $( ".form-control" ).keypress(
-      (e) => {
-        if (e.key === 'Enter') {
-          if (e.currentTarget.value === "") {
-            alert("please fill in the blank")
-            e.preventDefault()
-          } else {
-              $(".list-group").append(`
-                <li class="list-group-item d-flex justify-content-between activeness">
-                  <div class="d-flex" style="max-width: 94%">
-                    <input class="form-check-input me-2" type="checkbox" value="" id="flexCheckDefault">
-                    <span style="max-width: 94%" >${escape(e.currentTarget.value)}</span>
-                    <input type="text" " class="hide" />
-                  </div>
-                  <button type="button" class="btn-close" aria-label="Close"></button>
-                </li>
-              `)
-              $(".form-control").val("")
-              $(".footer").removeClass("hide")
-              $(".btn").removeClass("hide")
-              let number = $(".activeness").length
-              $(".counts").text(`${number} Items Left`)
-          }
-        }
-      }
-    )
-
-    //勾選
-    $(".list-group").on("click", "input[type='checkbox']", (e) => {
-      $(e.target).parent().parent().toggleClass("activeness")
-      $(e.target).parent().parent().toggleClass("non-active")
-      let number = $(".activeness").length
-      $(".counts").text(`${number} Items Left`)
-    })
-
-    //移除
-    $(".list-group").on("click", ".btn-close", (e) => {
-      $(e.target).parent().remove()
-    })
-
-    //編輯
-    $(".list-group").on("click", "span", (e) => {
-      $(e.target).addClass("hide")
-      $(e.target).parent().children("input").removeClass("hide")
-      $(e.target).parent().children("input").val(`${$(e.target).text()}`)
-    })
-
-    //編輯之二
-    $( ".list-group").keypress((e) => {
-      if (e.key === 'Enter') {
-        $(e.target).parent().children("span").removeClass("hide")
-        $(e.target).parent().children("span").text(`${$(e.target).val()}`)
-        $(e.target).addClass("hide")
-      }
-    })
-
-    //點選 All
-    $(".status-button").on("click", ".status-all", (e) => {
-      $(".status-button").addClass("all").removeClass("active").removeClass("completed")
-      
-    })
-
-    //點選 Active
-    $(".status-button").on("click", ".status-active", (e) => {
-      $(".status-button").addClass("active").removeClass("all").removeClass("completed")
-      
-    })
-
-    //點選 Completed
-    $(".status-button").on("click", ".status-completed", (e) => {
-      $(".status-button").addClass("completed").removeClass("active").removeClass("all")
-      
-    })
-
-    // 點選 Check All
-    $("button").on("click", (e) => {
-      let numbersOfChecked = $("input[type='checkbox']:checked").length
-      let numbersOfTodo = $("li").length
-      if (numbersOfChecked !== numbersOfTodo) {
-        $("input[type='checkbox']").prop("checked", true)
-        $("li").removeClass("activeness")
-        $("li").addClass("non-active")
-      }
-      
-      if(numbersOfChecked === numbersOfTodo) {
-        $("input[type='checkbox']").prop("checked", false)
-        $("li").addClass("activeness")
-        $("li").removeClass("non-active")
-      }
-      let number = $(".activeness").length
-      $(".counts").text(`${number} Items Left`)
-    })
-    
-
-    // 點選 Clear Completed
-    $(".clear").on("click", (e) => {
-      $(".non-active").remove()
-    })
-   
-    // 改變狀態
-    $('.container').on("click", (e) => {
-      if ($(".status-button").hasClass("completed")) {
-      $(".status-all").removeClass("border")
-      $(".status-active").removeClass("border")
-      $(".status-completed").addClass("border")
-      let active = $(".activeness")
-      active.addClass("hide")
-      let nonActive = $(".non-active")
-      nonActive.removeClass("hide")
-    }
-
-    if ($(".status-button").hasClass("all")) {
-      $(".status-all").addClass("border")
-      $(".status-active").removeClass("border")
-      $(".status-completed").removeClass("border")
-      let hide = $("li")
-      hide.removeClass("hide")
-    }
-
-    if ($(".status-button").hasClass("active")) {
-      $(".status-all").removeClass("border")
-      $(".status-active").addClass("border")
-      $(".status-completed").removeClass("border")
-      let nonActive = $(".non-active")
-      nonActive.addClass("hide")
-      let active = $(".activeness")
-      active.removeClass("hide")
-    }
-  })
-  </script>
+  <script src="./todo.js"></script>
 </body>
 </html>
