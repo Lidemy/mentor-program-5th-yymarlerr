@@ -1,0 +1,43 @@
+<DOCTYPE! html>
+
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>部落格</title>
+  <link rel="stylesheet" href="/public/style.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <div class="upper_part">
+      <%- include('./template/header') %>
+      <section class="section_banner">
+        <h2>存放記錄之地</h2>
+        <p>Ｗelcome to My Blog</p>
+      </section>
+      <main>
+        <div class="cards">
+          <div class="card">
+            <div class="article_info">
+              <div class="article_title"><%= results.title %></div>
+              <div>
+                <% if (username) { %>
+                <div class="edit_button"><a href="/update_blog/<%= results.id %>">編輯</a></div>
+                <div class="edit_button"><a href="/handleDelete_blog">刪除</a></div>
+                <% } %>
+              </div>
+            </div>
+            <div class="time"><%= results.createdAt %></div>
+            <div class="article_content">
+              <%- results.content %>
+            </div>
+          </div>
+        </div>
+      </main>
+    </div>
+    <footer>
+    Copyright © 2020 Yide's Blog All Rights Reserved.
+    </footer>
+  </div>
+</body>
+</html>

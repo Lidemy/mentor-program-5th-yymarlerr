@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>餐廳官網</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css' />
+  <link rel='stylesheet' href='/public/lottery.css' />
+</head>
+
+<body>
+    <%- include("./template/navbar")%>
+  <div class='card' style="background-image: url('<%= result.link %>')">
+    <h1><%= result.prize %></h1> 
+    <h2><%= result.desc %></h2>
+    <form method="GET" action="/lottery">
+      <input class='button' type="submit" value="我要抽獎" />
+    </form>
+  </div>
+    <%- include("./template/footer")%>
+</body>
+</html>

@@ -1,1 +1,4 @@
-examples/
+homeworks/week17/hw1/migrations/*
+homeworks/week17/hw1/models/*
+homeworks/week17/hw2/migrations/*
+homeworks/week17/hw2/models/*

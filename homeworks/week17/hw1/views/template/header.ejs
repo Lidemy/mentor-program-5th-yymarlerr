@@ -1,0 +1,20 @@
+<div class="section_header">
+  <section class="section_first">
+    <h1><a href="/">山の文</a></h1>
+    <nav>
+      <ul><a href="/articles_list">文章列表</a></ul>
+      <ul>分類專區</ul>
+      <ul>關於我</ul>
+    </nav>
+  </section>
+  <section class="section_second">
+    <nav>
+      <% if (username) { %>
+      <ul><a href="/admin">管理後檯</a></ul>
+      <ul><a href="/logout">登出</a></ul>
+      <% } else { %>
+      <ul><a href="/login">登入</a></ul>
+      <% } %>
+    </nav>
+  </section>
+</div>

@@ -1,0 +1,182 @@
+.navbar {
+    box-shadow: -1.4px -1.4px 6px 0 #97a2a0;
+    padding: 0px 21px;
+}
+
+.navbar .wrapper {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 84px;
+    background: white;
+}
+
+.footer__bottom {
+    background: #35564b;
+    padding: 12px 0px;
+    text-align: center;
+    color: white;
+    font-size: 16px;
+    padding: 12px;
+}
+
+.footer__top {
+    background: #e8efee;
+    padding: 32px;
+    color: #484848;
+}
+
+.footer__top .wrapper {
+    display: flex;
+    justify-content: space-between;
+}
+
+.footer__info {
+    margin-right: 16pxl
+}
+
+.footer__info div + div {
+    margin-top: 10px;
+}
+
+.footer__site {
+    font-size: 36px;
+    color: #489846
+}
+
+footer {
+    margin-top: -192px;
+}
+
+.wrapper {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0px 12px;
+}
+
+.navbar__site-name {
+    color: #489846;
+    font-size: 36px;
+    font-family: Questrial;
+}
+
+.navbar__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    font-size: 18px;
+}
+
+.navbar__list li {
+    margin-left: 12px;
+    border-radius: 8px;
+    transition: background 0.1s ease-in;
+}
+
+.navbar__list li.active,
+.navbar__list li:hover {
+    background: #ff7286;
+}
+
+.navbar__list li.active a,
+.navbar__list li:hover a {
+    color: white;
+}
+
+.navbar__list li a {
+    text-decoration: none;
+    color: black;
+    padding: 12px 24px;
+    display: block;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+.card {
+    background: no-repeat;
+    height: 767px;
+    margin: 0 auto 192px;
+    background-size: cover;
+    position: relative;
+}
+
+h1 {
+    color: black;
+    font-size: 33px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    top: 0;
+    margin: 0px auto;
+    text-align: center;
+    padding-top: 120px;
+}
+
+h2 {
+    text-align: center;
+    color: black;
+    font-size: 20px;
+    margin-top: 40px;
+}
+
+form {
+  display: flex;
+}
+
+.button {
+    width: 300px;
+    height: 40px;
+    background: #e62a45;
+    color: white;
+    border: 0px;
+    border-radius: 8px;
+    margin: 30px auto;
+}
+
+.button:hover {
+    cursor: pointer;
+}
+
+@media(max-width: 768px) {
+    .navbar .wrapper {
+        height: 120px;
+        flex-direction: column;
+        justify-content: space-between;
+        padding: 0px;
+    }
+
+    .navbar_site-name {
+        margin-top: 10px;
+    }
+
+    .navbar__list {
+        display: flex;
+        width: 100%;
+        align-self: flex-end;
+    }
+
+    .navbar__list li {
+        flex: 1;
+        margin-left: 0px;
+        border-radius: 0px;
+        text-align: center;
+    }
+
+    .footer__top .wrapper {
+        flex-direction: column-reverse;
+    }
+
+    .footer__info {
+        margin-right: 0;
+        margin-top: 16px;
+    }
+
+    .prize {
+        height: 558px;
+    }
+
+
+}

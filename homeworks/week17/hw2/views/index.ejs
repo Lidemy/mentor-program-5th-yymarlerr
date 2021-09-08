@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<head>
+  <meta charset='utf-8'>
+  <title>餐廳官網</title>
+  <meta name='viewport' content='width=device-width, initial-scale=1'>
+  <link rel='stylesheet' href='https://necolas.github.io/normalize.css/8.0.1/normalize.css' />
+  <link rel='stylesheet' href='/public/style.css' />
+</head>
+
+<body>
+    <%- include("./template/navbar")%>
+    <div class='card'>
+        <div class='prize'>
+            <div class='prize__content'>
+                <h2>2020 夏日輕盈特賞！ 抽獎活動辦法</h2>
+                <div class='information'>
+                    <div class='information__title'>
+                        活動期間：
+                    </div>
+                    <div class='information__content'>
+                        2020/06/01~2020/07/01
+                    </div>
+                </div>
+                <hr />
+                <div class='information'>
+                    <div class='information__title'>活動說明：</div>
+                    <div class='information__content'>
+                        今天老闆佛心來著決定給大家發獎勵，有看有機會，
+                        沒看只能幫QQ！只要在店內消費滿1000000元即有機會獲得 
+                        - 頭獎日本東京來回雙人遊！
+                    </div>
+                </div>
+                <hr />
+                <div class='information'>
+                    <div class='information__title'>獎  品：</div>
+                    <div class='information__content'>
+                      <% for (let prize of prizes) { %>
+                        <div><%= prize.prize %></div>
+                      <% } %>
+                    </div>
+                </div>
+                <hr />
+            </div>
+            <form method="GET" action="/lottery">
+            <input class='button' type="submit" value="我要抽獎" />
+            </form>
+        </div>
+    </div>
+
+    <div class='result hide'>
+        <h1>銘謝惠顧</h1>
+        <button class='new-button' onclick='javascript:window.location.reload()'>
+            我要抽獎
+        </button>
+    </div>
+    <%- include("./template/footer")%>
+    <script src='week17hw2.js'>
+    </script>
+</body>
+</html>
