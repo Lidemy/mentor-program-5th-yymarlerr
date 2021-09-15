@@ -2,17 +2,6 @@ homeworks/week17/hw1/migrations/*
 homeworks/week17/hw1/models/*
 homeworks/week17/hw2/migrations/*
 homeworks/week17/hw2/models/*
-homeworks/week21/hw1/todolist/node_modules/*
-homeworks/week21/hw1/todolist/package-lock.json
-homeworks/week21/hw1/todolist/public/*
-homeworks/week21/hw1/todolist/build/*
-homeworks/week21/hw2/gobang/node_modules/*
-homeworks/week21/hw2/gobang/package-lock.json
-homeworks/week21/hw2/gobang/public/*
-homeworks/week21/hw2/gobang/build/*
-homeworks/week21/hw3/form/node_modules/*
-homeworks/week21/hw3/form/package-lock.json
-homeworks/week21/hw3/form/public/*
-homeworks/week21/hw3/form/build/*
-
+homeworks/week21/hw3/node_modules/*
+homeworks/week21/hw3/public/*
 
